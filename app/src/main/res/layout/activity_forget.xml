@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Controller.ForgetActivity"
+    android:background="@drawable/background">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/ll"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:paddingLeft="45dp"
+        android:paddingRight="45dp">
+
+        <android.support.v4.widget.Space
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:id="@+id/emailEditText"
+            android:background="@drawable/edittext_background"
+            android:hint="Введите почту"
+            android:textColor="@android:color/white"
+            android:textSize="15dp"
+            android:textColorHint="@android:color/white"
+            android:paddingLeft="20dp"
+            android:maxLines="1"
+            android:inputType="textEmailAddress"
+            android:paddingRight="20dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:id="@+id/restoreBtn"
+            android:text="Сбросить пароль"
+            android:textSize="16dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/button_background"
+            android:textAllCaps="false"/>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:src="@drawable/logo_white"
+        android:layout_above="@id/textView"
+        android:layout_marginBottom="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:text="Забыли пароль?"
+        android:layout_marginBottom="20dp"
+        android:textSize="20dp"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:layout_above="@+id/ll"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/backBtn"
+        android:layout_below="@+id/ll"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="50dp"
+        android:textColor="@color/white50"
+        android:background="@android:color/transparent"
+        android:text="Отменить"
+        android:textSize="10dp"
+        android:layout_marginTop="10dp"/>
+
+
+</RelativeLayout>
