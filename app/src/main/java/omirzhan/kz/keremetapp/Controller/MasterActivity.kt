@@ -49,7 +49,11 @@ class MasterActivity : AppCompatActivity() {
 
     private fun switchFragment(fragment: Fragment) {
         fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.container, fragment)
+        if (fragment.isAdded) {
+            fragmentTransaction.show(fragment)
+        } else {
+            fragmentTransaction.replace(R.id.container, fragment)
+        }
         fragmentTransaction.commit()
     }
 }

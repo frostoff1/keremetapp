@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,8 +17,9 @@ import omirzhan.kz.keremetapp.R
 
 class MasterPostsFragment : Fragment() {
 
-    private lateinit var mView: View
+    private var mView: View? = null
     private lateinit var mAdapter: PostAdapter
+    private val TAG = MasterPostsFragment::class.java.simpleName
     var postArray: List<PostData> = listOf(PostData("name", 123,compound = "dadasda",delivery = false, type = "tort"),
             PostData("name", 123,compound = "dadasda",delivery = false, type = "tort"),
             PostData("name", 123,compound = "dadasda",delivery = false, type = "tort"))
@@ -25,13 +27,16 @@ class MasterPostsFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         (activity as AppCompatActivity).supportActionBar!!.title = "KeremetApp"
-        mView = inflater.inflate(R.layout.fragment_master_posts, container, false)
 
-        postArray
-        mAdapter = PostAdapter(postArray)
-        val mLayoutManager = LinearLayoutManager(activity)
-        mView.recyclerView.layoutManager = mLayoutManager
-        mView.recyclerView.adapter = mAdapter
+        if (mView == null) {
+            mView = inflater.inflate(R.layout.fragment_master_posts, container, false)
+
+            mAdapter = PostAdapter(postArray)
+            val mLayoutManager = LinearLayoutManager(activity)
+            mView!!.recyclerView.layoutManager = mLayoutManager
+            mView!!.recyclerView.adapter = mAdapter
+        }
+        Log.d(TAG, "onCreateView")
         return mView
     }
 
