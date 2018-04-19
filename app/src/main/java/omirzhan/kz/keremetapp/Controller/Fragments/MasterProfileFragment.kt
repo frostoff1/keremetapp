@@ -1,16 +1,17 @@
 package omirzhan.kz.keremetapp.Controller.Fragments
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import kotlinx.android.synthetic.main.fragment_master_profile.view.*
 import omirzhan.kz.keremetapp.Adapters.PostAdapter
+import omirzhan.kz.keremetapp.Controller.ClientActivity
+import omirzhan.kz.keremetapp.Controller.LoginActivity
 import omirzhan.kz.keremetapp.Model.PostData
 import omirzhan.kz.keremetapp.Model.UserData
 
@@ -32,14 +33,28 @@ class MasterProfileFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar!!.title = "Мой профиль"
         mView = inflater.inflate(R.layout.fragment_master_profile, container, false)
 
-
         mAdapter = PostAdapter(postArray, userData)
         val mLayoutManager = LinearLayoutManager(activity)
         mView!!.recyclerView.layoutManager = mLayoutManager
         mView!!.recyclerView.adapter = mAdapter
 
+        setHasOptionsMenu(true)
         return mView
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        inflater?.inflate(R.menu.profile, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item!!.itemId) {
+            R.id.extra -> {
+                val intent = Intent(activity, LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
 }

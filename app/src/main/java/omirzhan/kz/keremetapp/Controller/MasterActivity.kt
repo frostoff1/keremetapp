@@ -5,6 +5,8 @@ import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentTransaction
 import android.support.v7.app.AppCompatActivity
+import android.view.Menu
+import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_master.*
 import omirzhan.kz.keremetapp.Controller.Fragments.MasterCreateFragment
 import omirzhan.kz.keremetapp.Controller.Fragments.MasterPostsFragment
@@ -15,6 +17,7 @@ class MasterActivity : AppCompatActivity() {
 
     lateinit var fragment: Fragment
     private lateinit var fragmentTransaction: FragmentTransaction
+    lateinit var mMenu: Menu
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
 
@@ -47,13 +50,13 @@ class MasterActivity : AppCompatActivity() {
         switchFragment(fragment)
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        return super.onCreateOptionsMenu(menu)
+    }
+
     private fun switchFragment(fragment: Fragment) {
         fragmentTransaction = supportFragmentManager.beginTransaction()
-        if (fragment.isAdded) {
-            fragmentTransaction.show(fragment)
-        } else {
-            fragmentTransaction.replace(R.id.container, fragment)
-        }
+        fragmentTransaction.replace(R.id.container, fragment)
         fragmentTransaction.commit()
     }
 }

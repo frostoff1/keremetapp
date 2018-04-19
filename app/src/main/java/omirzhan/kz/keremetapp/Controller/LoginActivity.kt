@@ -23,7 +23,8 @@ class LoginActivity : Activity() {
         }
 
         loginBtn.setOnClickListener {
-            val intent = Intent(this, MasterActivity::class.java)
+            val intent = Intent(this, ClientActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
         }
 
