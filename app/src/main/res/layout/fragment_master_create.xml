@@ -211,15 +211,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/recyclerView"
-                    android:orientation="horizontal">
+                    android:scrollbars="horizontal">
                 </android.support.v7.widget.RecyclerView>
             </LinearLayout>
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:id="@+id/registerBtn"
-                android:text="Создать аккаунт"
+                android:id="@+id/createBtn"
+                android:text="Опубликовать"
                 android:textColor="@android:color/white"
                 android:textSize="16dp"
                 android:layout_marginTop="12dp"

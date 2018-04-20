@@ -21,9 +21,9 @@ class MasterPostsFragment : Fragment() {
     private var mView: View? = null
     private lateinit var mAdapter: PostAdapter
     private val TAG = MasterPostsFragment::class.java.simpleName
-    var postArray: List<PostData> = listOf(PostData("name", 123,compound = "dadasda",delivery = false, type = "tort"),
-            PostData("name", 123,compound = "dadasda",delivery = false, type = "tort"),
-            PostData("name", 123,compound = "dadasda",delivery = false, type = "tort"))
+    var postArray: List<PostData> = listOf(PostData(title = "title", price = "5000", compound = "comp", delivery = false, userID = "", type = "", imageUrl = ""),
+            PostData(title = "title", price = "5000", compound = "comp", delivery = false, userID = "", type = "", imageUrl = ""),
+            PostData(title = "title", price = "5000", compound = "comp", delivery = false, userID = "", type = "", imageUrl = ""))
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -36,7 +36,7 @@ class MasterPostsFragment : Fragment() {
             val mLayoutManager = LinearLayoutManager(activity)
             mView!!.recyclerView.layoutManager = mLayoutManager
             mView!!.recyclerView.adapter = mAdapter
-            mView!!.recyclerView.addOnItemTouchListener(RecyclerItemClickListener(activity,
+            mView!!.recyclerView.addOnItemTouchListener(RecyclerItemClickListener(activity as AppCompatActivity,
                     mView!!.recyclerView, object: RecyclerItemClickListener.OnItemClickListener {
                 override fun onItemClick(view: View, position: Int) {
                     val intent = Intent(activity, InfoActivity::class.java)

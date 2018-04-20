@@ -9,6 +9,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:hardwareAccelerated="false"
+        android:largeHeap="true"
         android:theme="@style/AppTheme">
         <activity
             android:name=".Controller.SplashActivity"
@@ -21,7 +23,7 @@
         </activity>
         <activity
             android:name=".Controller.LoginActivity"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
         <activity
             android:name=".Controller.RegisterActivity"
             android:windowSoftInputMode="stateHidden|adjustResize" />
